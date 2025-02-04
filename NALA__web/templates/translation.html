@@ -1,0 +1,32 @@
+{% extends "template.html" %}
+
+
+{% block line %}
+<div class="all">
+  <div class="containers">
+    <div class="wrappers">
+      <div class="text-input">
+        <!-- Textareas for ASR input and translated text -->
+        <textarea class="from-text" id="textToTranslate" spellcheck="true" placeholder="Enter Text"></textarea>
+        <textarea class="to-text"  id="translation" readonly spellcheck="true" placeholder="Translation"></textarea>
+      </div>
+      <ul class="controls">
+        <li class="row from">
+          <div class="icons">
+            <i id="from" class="fas fa-volume-up"></i>
+            <i id="from" class="fas fa-copy"></i>
+          </div>
+        </li>
+        <li class="row to">
+          <div class="icons">
+            <i id="to" class="fas fa-volume-up"></i>
+            <i id="to" class="fas fa-copy"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- Separate buttons for speech recognition and translation -->
+    <button id="start-recognition" onclick="translateText()">Translate</button>
+  </div>
+</div>
+{% endblock %}

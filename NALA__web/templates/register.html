@@ -1,0 +1,28 @@
+{% extends "template.html" %}
+
+
+{% block line %}
+<div class="all">
+    <div class="form-container">
+        <h1>NALA</h1>
+        <p>Join to Experience the Philippine Linguistics</p>
+        <form action='/register' method="post">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="Enter your desired username" required>
+            <br>
+            <label for="email">Email Address:</label>
+            <input type="email" name="email" id="email" placeholder="Enter your desired email address" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter your desired password" required>
+            <br>
+            <label for="c-password">Confirm Password:</label>
+            <input type="password" name="c-password" id="c-password" placeholder="Enter the password you enter earlier" required>
+            <br>
+            <button type="submit">Register</button>
+            <br>
+            <p class="acc">You already have an account? <a href="/login">Login!</a></p>
+        </form>
+    </div>
+</div>
+{% endblock  %}
