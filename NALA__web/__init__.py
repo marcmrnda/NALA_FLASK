@@ -17,6 +17,7 @@ def create_database(app):
 def main():
     from .view import view
     from .auth import auth
+    
 
     app = Flask(__name__)
     
@@ -30,6 +31,7 @@ def main():
     app.config['SECRET_KEY'] = mySecretKey
     app.config["DEBUG"] = debug
     
+    
    
     db.init_app(app)
   
@@ -41,5 +43,4 @@ def main():
     
 
     create_database(app)
-    
     return app
