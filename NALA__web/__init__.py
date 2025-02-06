@@ -17,7 +17,7 @@ def create_database(app):
 def main():
     from .view import view
     from .auth import auth
-    
+    from flask_wtf.csrf import CSRFProtect
 
     app = Flask(__name__)
     
@@ -37,10 +37,17 @@ def main():
   
     app.register_blueprint(view, url_prefix='/')  
     app.register_blueprint(auth, url_prefix='/')  
-    
+    app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SECURE=True,  # Only send cookies over HTTPS
+    SESSION_COOKIE_SAMESITE="Strict"  # Prevents CSRF attacks
+)
+
 
     from .model import User
     
-
+    csrf = CSRFProtect(app)
+    
     create_database(app)
+    
     return app

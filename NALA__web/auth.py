@@ -1,11 +1,15 @@
-from flask import render_template,Blueprint,request,redirect,flash,url_for,session
+from flask import render_template,Blueprint,request,redirect,flash,url_for,session,make_response
 import re
 from werkzeug.security import generate_password_hash, check_password_hash
 from .model import User
 from . import db
-
+from flask_cors import CORS
 
 auth = Blueprint('auth',__name__)
+
+
+CORS(auth, resources={r"/*": {"origins": "http://127.0.0.1:5000/"}})
+
 
 @auth.route('/register', methods=["POST","GET"])
 def register():
@@ -55,9 +59,7 @@ def login():
         if usernameChecker:
             if check_password_hash(usernameChecker.password,password):
                 session.permanent = True
-                session["user_id"] = usernameChecker.id
                 session["username"] = usernameChecker.username
-                session["password"] = usernameChecker.password
                 session["accountType"] = usernameChecker.account_type
                 
                 if "username" in session and session["accountType"] == "User":
@@ -79,10 +81,7 @@ def login():
 
 @auth.route('/logout')
 def logoutUser():
-    session.pop("username",None)
-    session.pop("password",None)
-    session.pop("id",None)
-    session.pop("accountType",None)
+    session.clear()
     flash("Log out Successfully", category="error")
     return redirect(url_for('auth.login'))
 
