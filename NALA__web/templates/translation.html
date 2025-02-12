@@ -4,31 +4,27 @@
 {% block line %}
 <div class="all">
   <div class="containers">
-    <div class="card input-wrapper">
-      <div class="from">
-        <span class="heading">From :</span>
-        <div class="dropdown-container" id="input-language">
-          <div class="dropdown-toggle">
-            <ion-icon name="globe-outline"></ion-icon>
-            <span class="selected" data-value="auto">Auto Detect</span>
-            <ion-icon name="chevron-down-outline"></ion-icon>
-          </div>
-          <ul class="dropdown-menu">
-            <li class="option active">DropDown Menu Item 1</li>
-            <li class="option">DropDown Menu Item 2</li>
-          </ul>
+    <form method="post" action="/translate" class="translation-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="input-area">
+      <div class="card input-wrapper">
+        <div class="from">
+          <span class="heading">From :</span>
+          <select id="input-language" name="input-language" class="language-select">
+            <option value="eng_to_" selected>English</option>
+            <option value="tag_to_">Tagalog</option>
+            <option value="ceb_to_">Cebuano</option>
+            <option value="ilo_to_">Ilokano</option>
+            <option value="hil_to_">Hilgaynon</option>
+            <option value="pag_to_">Pangasinan</option>
+            <option value="war_to_">Waray</option>
+          </select>
         </div>
-      </div>
-      <div class="text-area">
-        <textarea
-          id="input-text"
-          cols="30"
-          rows="10"
-          placeholder="Enter your text here"
-        ></textarea>
+        <textarea id="input-text" name="input-text" cols="30" rows="10" placeholder="Enter your text here" required></textarea>
         <div class="chars"><span id="input-chars">0</span> / 5000</div>
-      </div>
+        
     </div>
+    
     <div class="center">
       <div class="swap-position">
         <ion-icon name="swap-horizontal-outline"></ion-icon>
@@ -36,29 +32,26 @@
     </div>
 
     <div class="card output-wrapper">
-      <div class="to">
-        <span class="heading">To :</span>
-        <div class="dropdown-container" id="output-language">
-          <div class="dropdown-toggle">
-            <ion-icon name="globe-outline"></ion-icon>
-            <span class="selected" data-value="en">English</span>
-            <ion-icon name="chevron-down-outline"></ion-icon>
-          </div>
-          <ul class="dropdown-menu">
-            <li class="option active">DropDown Menu Item 1</li>
-            <li class="option">DropDown Menu Item 2</li>
-          </ul>
+        <div class="to">
+          <span class="heading">To :</span>
+          <select id="output-language" name="output-language" class="language-select">
+            <option value="eng">English</option>
+            <option value="tag">Tagalog</option>
+            <option value="ceb" selected>Cebuano</option>
+            <option value="ilo">Ilokano</option>
+            <option value="hil">Hilgaynon</option>
+            <option value="pag">Pangasinan</option>
+            <option value="war">Waray</option>
+          </select>
         </div>
+        <textarea id="output-text" cols="30" rows="10" placeholder="Translated text will appear here" disabled></textarea>
       </div>
-      <textarea
-        id="output-text"
-        cols="30"
-        rows="10"
-        placeholder="Translated text will appear here"
-        disabled
-      ></textarea>
     </div>
+    <button type="submit" class="translate-btn">Translate</button>
+  </form>
+  </div>
 </div>
+
 
 {% endblock line %}
 

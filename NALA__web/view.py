@@ -29,6 +29,16 @@ def adminPage():
     return render_template('admin.html' , query=query)
 
 
+@view.route('/unified')
+def unifiedPage():
+    if not "username" in session:
+        flash("Need to login to access the site", category="error")
+        return redirect(url_for("auth.login"))
+    if session["accountType"] != "User":
+        return redirect(url_for("view.forbidden")) 
+    return render_template("unified.html")
+    
+
 @view.route('/unauthorized')
 def forbidden():
     return render_template("403.html")

@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from .model import User
 from . import db
 from flask_cors import CORS
+import requests
 
 auth = Blueprint('auth',__name__)
 
@@ -93,4 +94,5 @@ def DeleteUser(id:int):
         db.session.commit()
         return redirect(url_for('view.adminPage'))
     except Exception as e:
-        return f"ERROR{e}"   
+        return f"ERROR{e}"
+    
