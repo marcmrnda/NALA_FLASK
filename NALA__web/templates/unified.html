@@ -20,6 +20,7 @@
 
     <section>
         <form action="/" method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="circle-container">
                 <div class="card" style="--i: 1;">
                     <div class="card-title">
