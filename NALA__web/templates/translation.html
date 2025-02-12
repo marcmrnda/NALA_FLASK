@@ -1,357 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "template.html" %}
 
-<head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="icon" href="images/iNUvators_20240915_235832_0000-Photoroom.png">
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-  <title>iNUvators</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  <!-- slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-  <!-- fonts awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
-</head>
-
-<body>
-<div class="boxed-container">
-  <div class="reveal">
-  <div class="hero_area">
-    <!-- header section strats -->
-    <header class="header_section">
-      <nav class="navbar navbar-expand-lg custom_nav-container">
-        <div class="custom_menu-btn">
-          <button onclick="openNav()">
-            <span class="s-1"> </span>
-            <span class="s-2"> </span>
-            <span class="s-3"> </span>
-          </button>
-        </div>
-        <div id="myNav" class="overlay">
-          <div class="menu_btn-style ">
-            <button onclick="closeNav()">
-              <span class="s-1"> </span>
-              <span class="s-2"> </span>
-              <span class="s-3"> </span>
-            </button>
+{% block line %}
+<div class="all">
+  <div class="containers">
+    <div class="card input-wrapper">
+      <div class="from">
+        <span class="heading">From :</span>
+        <div class="dropdown-container" id="input-language">
+          <div class="dropdown-toggle">
+            <ion-icon name="globe-outline"></ion-icon>
+            <span class="selected" data-value="auto">Auto Detect</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
           </div>
-          <div class="overlay-content">
-            <a class="active" href="index.html">
-              Home
-            </a>
-            <a class="" href="index.html#features">
-              About
-            </a>
-            <a class="" href="index.html#media">
-              Services
-            </a>
-            <a class="" href="index.html#news">
-              Contact Us
-            </a>
-          </div>
-        </div>
-        <a class="navbar-brand" href="index.html">
-          <span>
-            iNUvators
-          </span>
-        </a>
-        <div class="user_option">
-          <form class="form-inline">
-            <button class="btn  nav_search-btn" type="submit">
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-          </form>
-          <a href="">
-            <i class="fa fa-user" aria-hidden="true"></i>
-          </a>
-        </div>
-        <div class="name_style">
-          <h6>
-            N
-            A
-            L
-            A
-          </h6>
-        </div>
-      </nav>
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section position-relative">
-      <div class="box">
-        <div class="detail-box">
-          <img src="images/iNUvators_20240915_235832_0000-Photoroom.png" alt="logo_img" width="200" height="200" viewBox="0 0 112 112">
-          </a>
-          <div class="carousel slide slider_text_carousel" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="heading_box">
-                  <h1>
-                    <span>
-                      Preserve 
-                    </span>
-                    <span>
-                      Our
-                    </span>
-                    <span>
-                      Philippine
-                    </span>
-                    <span>
-                      Dialects.
-                    </span>
-                  </h1>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="heading_box">
-                  <h1>
-                    <span>
-                      Ipreserba
-                    </span>
-                    <span>
-                      Ang Atong
-                    </span>
-                    <span>
-                      Mga
-                    </span>
-                    <span>
-                      Sinultian
-                    </span>
-                    <span>
-                      Sa Pilipinas.
-                    </span>
-                  </h1>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="img-box">
-          <div class="carousel slide slider_image_carousel carousel-fade" data-ride="carousel">
-            <div class="all">
-              <div class="containers">
-                <div class="card input-wrapper">
-                  <div class="from">
-                    <span class="heading">From :</span>
-                    <div class="dropdown-container" id="input-language">
-                      <div class="dropdown-toggle">
-                        <ion-icon name="globe-outline"></ion-icon>
-                        <span class="selected" data-value="auto">Auto Detect</span>
-                        <ion-icon name="chevron-down-outline"></ion-icon>
-                      </div>
-                      <ul class="dropdown-menu">
-                        <li class="option active">DropDown Menu Item 1</li>
-                        <li class="option">DropDown Menu Item 2</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="text-area">
-                    <textarea
-                      id="input-text"
-                      cols="30"
-                      rows="10"
-                      placeholder="Enter your text here"
-                    ></textarea>
-                    <div class="chars"><span id="input-chars">0</span> / 5000</div>
-                  </div>
-                </div>
-                <div class="center">
-                  <div class="swap-position">
-                    <ion-icon name="swap-horizontal-outline"></ion-icon>
-                  </div>
-                </div>
-          
-                <div class="card output-wrapper">
-                  <div class="to">
-                    <span class="heading">To :</span>
-                    <div class="dropdown-container" id="output-language">
-                      <div class="dropdown-toggle">
-                        <ion-icon name="globe-outline"></ion-icon>
-                        <span class="selected" data-value="en">English</span>
-                        <ion-icon name="chevron-down-outline"></ion-icon>
-                      </div>
-                      <ul class="dropdown-menu">
-                        <li class="option active">DropDown Menu Item 1</li>
-                        <li class="option">DropDown Menu Item 2</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <textarea
-                    id="output-text"
-                    cols="30"
-                    rows="10"
-                    placeholder="Translated text will appear here"
-                    disabled
-                  ></textarea>
-                </div>
-            </div>
-          </div>
+          <ul class="dropdown-menu">
+            <li class="option active">DropDown Menu Item 1</li>
+            <li class="option">DropDown Menu Item 2</li>
+          </ul>
         </div>
       </div>
-    </section>
-    <!-- end slider section -->
-  </div>
-</div>
-  <!-- feature section -->
-  <section class="feature_section reveal">
-<div class="o-page">
-  <div class="goal-container">
-    <h2 class="goal-heading">Our Goals</h2>
-	<div class="skill-set">
-	
-<!-- UI -->
-<a href="#" class="skill-outer ui">
-	<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-	  <g opacity=".87" fill="none" stroke="#fff">
-		 <text class="text" x="50%" y="150.11" text-anchor="middle" font-size="16" fill="#fff" stroke="none" font-family="RobotoMono-Medium,Roboto Mono" font-weight="500">
-			User Friendly
-		 </text> 
-		 <path class="rectangle" d="M30.57 22.69h98.86v98.86H30.57z"/>
-		 <path class="bar" d="M30.57 37.59h98.86"/>
-		 <circle class="dot3" cx="58.76" cy="29.96" r="3.09"/>
-		 <circle class="dot2" cx="49.19" cy="29.96" r="3.09"/>
-		 <circle class="dot1" cx="39.62" cy="29.96" r="3.09"/>
-		 <rect class="btn" x="55.28" y="67.21" width="49.43" height="24.72" rx="4"/>
-		 <path class="heart" 				fill="#000000" d="M80 85.57l-1-.86c-3.37-3.06-5.59-5.07-5.59-7.54a3.56 3.56 0 0 1 3.6-3.6A3.9 3.9 0 0 1 80 74.94a3.9 3.9 0 0 1 2.94-1.37 3.56 3.56 0 0 1 3.6 3.6c0 2.47-2.22 4.48-5.59 7.54z"/>
-	  </g>
-	</svg>
-</a>
-
-<!-- infographic -->
-<a class="skill-outer infographic" href="#" class="skill-outer">
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-	  <g opacity=".87" fill="none" stroke="#fff">
-		 <text class="text" x="50%" y="150.11" text-anchor="middle" font-size="16" fill="#fff" stroke="none" font-family="RobotoMono-Medium,Roboto Mono" font-weight="500">
-			Reduced Inequalities
-		 </text>
-		 <path class="left-bottom" d="M43.72 121.55c-7.86-1.45-13.15-4.64-13.15-8.21"/>
-		 <path class="left-side3" d="M53.18 76.81h22.6v36.53h-22.6z"/>
-		 <path class="left-side2" d="M53.18 76.81l-9.46 8.22v36.52l9.46-8.21V76.81z"/>
-		 <path class="left-side1" d="M30.57 76.81v36.53"/>
-		 <path class="left-top" d="M43.72 85l9.46-8.22h22.6c0-5-10.2-9-22.6-9s-22.6 4.09-22.6 9c0 3.53 5.14 6.74 13.14 8.22"/>
-		 
-		 <path class="right-bottom" d="M129.43 111c0 3.57-5.29 6.76-13.15 8.21"/>
-		 <path class="right-side3" d="M129.43 31.73v79.28"/>
-		 <path class="right-side2" d="M106.82 31.73l9.46 8.22v79.27l-9.46-8.21V31.73z"/>
-		 <path class="right-side1" d="M84.22 31.73h22.6V111h-22.6z"/>
-		 <path class="right-top" d="M116.28 40l-9.46-8.22h-22.6c0-5 10.2-9 22.6-9s22.6 4.08 22.6 9c0 3.53-5.14 6.74-13.14 8.22"/>
-	  </g>
-	</svg>
-</a>
-
-<!-- 	typo -->
-<a href="#" class="skill-outer typo">
-	<svg class="typo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-	  <g pacity=".87" fill="none" stroke="#fff">
-		 <text class="text" x="50%" y="150.11" text-anchor="middle" fill="#fff" stroke="none" font-size="16" font-family="RobotoMono-Medium,Roboto Mono" font-weight="500">
-			Quality Education
-		 </text>
-		 <path class="typo-right-under" fill="#fff" d="M112.06 111.91a6.21 6.21 0 0 1-.4-1.13c-.11-.43-.2-.88-.28-1.36a8.58 8.58 0 0 1-1.31 1.14 9.37 9.37 0 0 1-1.65.92 9.56 9.56 0 0 1-2 .62 10.91 10.91 0 0 1-2.34.2 11.35 11.35 0 0 1-3.73-.63 9 9 0 0 1-2.9-1.67 7.41 7.41 0 0 1-2.53-5.73 7.57 7.57 0 0 1 3.21-6.45c2.11-1.51 5.23-2.23 9.37-2.18h3.81V94.1a3.87 3.87 0 0 0-1.21-3 5.27 5.27 0 0 0-3.59-1.16 4.34 4.34 0 0 0-3.06.86 3.11 3.11 0 0 0-1 2.38l-6.82-.08a7.17 7.17 0 0 1 .78-3.21 8.09 8.09 0 0 1 2.22-2.65 10.89 10.89 0 0 1 3.54-1.78 15.18 15.18 0 0 1 4.76-.62 16.75 16.75 0 0 1 4.47.64 10.88 10.88 0 0 1 3.6 1.74 8 8 0 0 1 2.35 2.94 9.13 9.13 0 0 1 .81 4.08l-.16 11.39a18.69 18.69 0 0 0 .23 3.53 8.61 8.61 0 0 0 .75 2.42v.42zm-6.44-4.91a6.91 6.91 0 0 0 1.91-.22 6.83 6.83 0 0 0 1.61-.62 5.51 5.51 0 0 0 1.24-.88 4.67 4.67 0 0 0 .82-1v-4.56h-3.48a10.37 10.37 0 0 0-2.72.28 5.28 5.28 0 0 0-1.85.83 3.46 3.46 0 0 0-1.07 1.32 4.05 4.05 0 0 0-.37 1.68 3 3 0 0 0 1 2.29 4.12 4.12 0 0 0 2.91.88z"/>
-		<path class="typo-left-under" fill="#fff" d="M77.28 94H54.91l-5.38 17.35H41l21.63-67h7.14l21.27 67h-8.46zm-20.07-7.44H75l-8.81-29.09z"/>
-		<path class="wave-middle" stroke="transparent" fill="#121212"/>
-		<path class="typo-right-top" stroke="#fff" d="M112.06 111.91a6.21 6.21 0 0 1-.4-1.13c-.11-.43-.2-.88-.28-1.36a8.58 8.58 0 0 1-1.31 1.14 9.37 9.37 0 0 1-1.65.92 9.56 9.56 0 0 1-2 .62 10.91 10.91 0 0 1-2.34.2 11.35 11.35 0 0 1-3.73-.63 9 9 0 0 1-2.9-1.67 7.41 7.41 0 0 1-2.53-5.73 7.57 7.57 0 0 1 3.21-6.45c2.11-1.51 5.23-2.23 9.37-2.18h3.81V94.1a3.87 3.87 0 0 0-1.21-3 5.27 5.27 0 0 0-3.59-1.16 4.34 4.34 0 0 0-3.06.86 3.11 3.11 0 0 0-1 2.38l-6.82-.08a7.17 7.17 0 0 1 .78-3.21 8.09 8.09 0 0 1 2.22-2.65 10.89 10.89 0 0 1 3.54-1.78 15.18 15.18 0 0 1 4.76-.62 16.75 16.75 0 0 1 4.47.64 10.88 10.88 0 0 1 3.6 1.74 8 8 0 0 1 2.35 2.94 9.13 9.13 0 0 1 .81 4.08l-.16 11.39a18.69 18.69 0 0 0 .23 3.53 8.61 8.61 0 0 0 .75 2.42v.42zm-6.44-4.91a6.91 6.91 0 0 0 1.91-.22 6.83 6.83 0 0 0 1.61-.62 5.51 5.51 0 0 0 1.24-.88 4.67 4.67 0 0 0 .82-1v-4.56h-3.48a10.37 10.37 0 0 0-2.72.28 5.28 5.28 0 0 0-1.85.83 3.46 3.46 0 0 0-1.07 1.32 4.05 4.05 0 0 0-.37 1.68 3 3 0 0 0 1 2.29 4.12 4.12 0 0 0 2.91.88z"/>	
-		<path class="typo-left-top" d="M77.28 94H54.91l-5.38 17.35H41l21.63-67h7.14l21.27 67h-8.46zm-20.07-7.44H75l-8.81-29.09z"/>
-	  </g>
-	</svg>
-</a>	
-		
-<!-- code -->
-
-<a href="#" class="skill-outer code">
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-	  <g opacity=".87" fill="none" stroke="#fff">
-		 <text class="text" x="50%" y="150.11" text-anchor="middle" font-size="16" fill="#fff" stroke="none" font-family="RobotoMono-Medium,Roboto Mono" font-weight="500">
-			Impactful Codes
-		 </text>
-		 <path class="rectangle" transform="rotate(-90 80 72.12)" d="M30.57 22.69h98.86v98.86H30.57z"/>
-		 <path class="bar" d="M45.46 121.55V22.69"/>
-		</g>
-	</svg>
-	<span class="change-letter"></span>
-</a>
-		
-</div>
-  </div>
-</div>
-  </section>
-  <footer class="site-footer reveal">
-    <div class="container">
-        <div class="site-footer-inner has-top-divider">
-            <div class="brand footer-brand">
-                <a href="#">
-      <img src="images/iNUvators_20240915_235832_0000-Photoroom.png" alt="logo_img" width="102" height="102" viewBox="0 0 112 112">
-          <title>NALA</title>
-                </a>
-            </div>
-            <ul class="footer-links list-reset">
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-                <li>
-                    <a href="#">About us</a>
-                </li>
-                <li>
-                    <a href="#">FAQ's</a>
-                </li>
-                <li>
-                    <a href="#">Support</a>
-                </li>
-            </ul>
-            <ul class="footer-social-links list-reset">
-                <li>
-                    <a href="#">
-                        <span class="screen-reader-text">Facebook</span>
-                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#FFF"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="screen-reader-text">Twitter</span>
-                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z" fill="#FFF"/>
-                        </svg>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="screen-reader-text">Google</span>
-                        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" fill="#FFF"/>
-                        </svg>
-                    </a>
-                </li>
-            </ul>
-            <div class="footer-copyright">&copy; 2024 NALA, all rights reserved</div>
-        </div>
+      <div class="text-area">
+        <textarea
+          id="input-text"
+          cols="30"
+          rows="10"
+          placeholder="Enter your text here"
+        ></textarea>
+        <div class="chars"><span id="input-chars">0</span> / 5000</div>
+      </div>
     </div>
-  </footer>
+    <div class="center">
+      <div class="swap-position">
+        <ion-icon name="swap-horizontal-outline"></ion-icon>
+      </div>
+    </div>
+
+    <div class="card output-wrapper">
+      <div class="to">
+        <span class="heading">To :</span>
+        <div class="dropdown-container" id="output-language">
+          <div class="dropdown-toggle">
+            <ion-icon name="globe-outline"></ion-icon>
+            <span class="selected" data-value="en">English</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </div>
+          <ul class="dropdown-menu">
+            <li class="option active">DropDown Menu Item 1</li>
+            <li class="option">DropDown Menu Item 2</li>
+          </ul>
+        </div>
+      </div>
+      <textarea
+        id="output-text"
+        cols="30"
+        rows="10"
+        placeholder="Translated text will appear here"
+        disabled
+      ></textarea>
+    </div>
 </div>
 
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script type="module" src="js/custom.js"></script>
-</body>
+{% endblock line %}
 
-</html>
+

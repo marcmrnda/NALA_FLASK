@@ -3,3 +3,5 @@ flask-sqlalchemy
 flask-session
 python-dotenv
 bcrypt
+flask_cors
+flask_wtf

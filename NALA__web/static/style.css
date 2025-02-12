@@ -34,7 +34,7 @@ body {
 }
 @font-face {
 	font-family: "mars";
-	src:url(/fonts/Mars.ttf);
+	src:url(./fonts/Mars.ttf);
 }
 .boxed-container {
 	max-width: 1440px;

@@ -13,6 +13,8 @@
   <meta name="author" content="" />
   <link rel="icon" href="{{url_for("static", filename="assets/iNUvators_20240915_235832_0000-Photoroom.png")}}">
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <title>iNUvators</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -28,6 +30,9 @@
   <link href="{{url_for("static", filename="/style.css")}}" rel="stylesheet" />
   <!-- responsive style -->
   <link href="{{url_for("static", filename="/responsive.css")}}" rel="stylesheet" />
+
+  <link href="{{url_for("static", filename="/user.css")}}" rel="stylesheet" />
+  
 </head>
 
 <body>
@@ -319,7 +324,7 @@
   <script src="{{url_for("static",filename="js/jquery-3.4.1.min.js")}}"></script>
   <script src="{{url_for("static",filename="js/bootstrap.js")}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <script src="{{url_for("static",filename="js/custom.js")}}"></script>
+  <script type="module" src="{{url_for("static",filename="js/custom.js")}}"></script>
   <script>
 
     const button = document.getElementById('close')
