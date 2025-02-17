@@ -34,7 +34,7 @@ def unifiedPage():
     if not "username" in session:
         flash("Need to login to access the site", category="error")
         return redirect(url_for("auth.login"))
-    if session["accountType"] != "User":
+    if session["accountType"] != "Admin":
         return redirect(url_for("view.forbidden")) 
     return render_template("unified.html")
     
