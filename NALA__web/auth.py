@@ -1,10 +1,10 @@
-from flask import render_template,Blueprint,request,redirect,flash,url_for,session,make_response
-import re
+from flask import render_template,Blueprint,request,redirect,flash,url_for,session,jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from .model import User
 from . import db
 from flask_cors import CORS
 import requests
+
 
 auth = Blueprint('auth',__name__)
 
@@ -95,4 +95,38 @@ def DeleteUser(id:int):
         return redirect(url_for('view.adminPage'))
     except Exception as e:
         return f"ERROR{e}"
-    
+
+@auth.route('/translate', methods=["POST", "GET"])
+def translatePage():
+    # Check if the request method is POST (form submission)
+    if request.method == "POST":
+        # Get the input text from the form
+        inputText = request.form.get("textInput")  
+
+        # Get the selected language pair (e.g., "eng_to_ceb")
+        inputLanguages = request.form.get("languageInput")  
+
+        # Get the target output language (e.g., "ceb")
+        outputLanguage = request.form.get("languageOutput") 
+
+        # Extract the source language by removing "_to_" from the value
+        inputLanguage = inputLanguages.replace("_to_", "")
+
+        # Construct the Google Translate API URL
+        url = f"https://translate.googleapis.com/translate_a/single?client=gtx&sl={inputLanguage}&tl={outputLanguage}&dt=t&q={requests.utils.quote(inputText)}"
+
+        # Send a request to the Google Translate API
+        response = requests.get(url)
+
+        # Parse the JSON response from the API
+        data = response.json()
+
+        # Extract the translated text from the API response
+        translated = data[0][0][0]
+
+        # If the request is made via AJAX (for live translation), return JSON response
+        if request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            return jsonify({"translatedText": translated, "inputText": inputText})
+
+    # If GET request or no AJAX request, render the translation page normally
+    return render_template('translation.html')

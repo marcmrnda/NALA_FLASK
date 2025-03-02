@@ -100,4 +100,3 @@ swapBtn.addEventListener("click", () => {
   outputTextElem.value = tempText;
 });
 
-

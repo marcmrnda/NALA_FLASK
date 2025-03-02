@@ -4,7 +4,7 @@
 {% block line %}
 <div class="all">
   <div class="containers">
-    <form method="post" action="/translate" class="translation-form">
+    <form method="post" action="/translate" id="translation-form">
       <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="input-area">
       <div class="card input-wrapper">
@@ -12,12 +12,7 @@
           <span class="heading">From :</span>
           <select id="input-language" name="input-language" class="language-select">
             <option value="eng_to_" selected>English</option>
-            <option value="tag_to_">Tagalog</option>
             <option value="ceb_to_">Cebuano</option>
-            <option value="ilo_to_">Ilokano</option>
-            <option value="hil_to_">Hilgaynon</option>
-            <option value="pag_to_">Pangasinan</option>
-            <option value="war_to_">Waray</option>
           </select>
         </div>
         <textarea id="input-text" name="input-text" cols="30" rows="10" placeholder="Enter your text here" required></textarea>
@@ -36,12 +31,7 @@
           <span class="heading">To :</span>
           <select id="output-language" name="output-language" class="language-select">
             <option value="eng">English</option>
-            <option value="tag">Tagalog</option>
             <option value="ceb" selected>Cebuano</option>
-            <option value="ilo">Ilokano</option>
-            <option value="hil">Hilgaynon</option>
-            <option value="pag">Pangasinan</option>
-            <option value="war">Waray</option>
           </select>
         </div>
         <textarea id="output-text" cols="30" rows="10" placeholder="Translated text will appear here" disabled></textarea>
@@ -52,6 +42,38 @@
   </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"
+          integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+          crossorigin="anonymous"></script>
+
+          <script type="text/javascript">
+           // Listen for the form submission event
+            $(document).on("submit", "#translation-form", function (e) {
+                e.preventDefault(); // Prevent the default form submission (page reload)
+
+                // Send an AJAX request to the translation route
+                $.ajax({
+                    type: "POST", // HTTP method
+                    url: "/translate", // Flask route handling translation
+                    data: {
+                        csrf_token: $("input[name=csrf_token]").val(), // Include CSRF token for security
+                        languageInput: $("#input-language").val(), // Get the source language from dropdown
+                        textInput: $("#input-text").val(), // Get the text input from the user
+                        languageOutput: $("#output-language").val() // Get the target language from dropdown
+                    },
+                    dataType: "json", // Expect a JSON response from the server
+                    headers: { "X-Requested-With": "XMLHttpRequest" }, // Identify as an AJAX request
+                    success: function (response) {
+                        // Update the output textarea with the translated text
+                        $("#output-text").val(response.translatedText);
+                    },
+                    error: function (xhr) {
+                        // Display an alert in case of an error
+                        alert("Error: " + xhr.responseText);
+                    }
+                });
+            });
+          </script>
 
 {% endblock line %}
 
